@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Linktree</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .linktree-container {
+            background-color: rgb(43, 179, 179);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .link-item {
+            margin: 15px;
+        }
+        h1 {
+            color:#333;
+        }
+        p {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: rgb(63, 65, 65);
+            border: 1px solid #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .link-item a:hover {
+            background-color: #444;
+        }
+        a {
+           text-decoration: none;
+           color:#ffffff; 
+        }
+    </style>
+</head>
+<body>
+    <div class="linktree-container">
+        <h1>My LinkTree</h1>
+        <div class="LinkedIn">
+            <p><a href="https://www.linkedin.com/in/afif-ilham-b5223021a/">LinkedIn</a></p>
+        </div>
+        <div class="Instagram">
+            <p><a href="https://www.instagram.com/afifilhaam/">Instagram</a></p>
+        </div>
+        <div class="Git-Hub">
+            <p><a href="https://github.com/afifilhamh/pomodoro">Git-Hub</a></p>
+        </div>
+        <div class="button">
+            <p><a href="{{ url_for('profile') }}">Back To Profile Page</a></p>
+        </div>
+ 
+    </div>
+</body>
+</html>

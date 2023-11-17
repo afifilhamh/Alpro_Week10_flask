@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Page</title>
+</head>
+<body>
+    <h2>Data Form</h2>
+    <form action="/getdata" method="post">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required><br>
+
+        <label for="usia">Usia:</label>
+        <input type="text" id="usia" name="usia" required><br>
+
+        <label for="pekerjaan">Pekerjaan:</label>
+        <input type="text" id="pekerjaan" name="pekerjaan" required><br>
+
+        <button type="submit">Tambah Data</button>
+    </form>
+
+    <h2>Data JSON</h2>
+    <script>
+        fetch('/showdata')
+            .then(response => response.json())
+            .then(data => {
+                // Manipulasi data dan rendering ke halaman HTML
+                const dataList = document.getElementById('data-list');
+                data.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item.nama + ' - ' + item.usia + ' - ' + item.pekerjaan;
+                    dataList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+
+    <ul id="data-list"></ul>
+</body>
+</html>

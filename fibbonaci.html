@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 50px;
+        }
+        .fibonacci-container {
+            background-color: rgb(43, 179, 179);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        label {
+            font-size: 18px;
+            color: #333;
+        }
+        input {
+            width: 80px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(63, 65, 65);
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #444;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        p {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: rgb(63, 65, 65);
+            border: 1px solid #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        a {
+           text-decoration: none;
+           color:#ffffff; 
+        }
+    </style>
+</head>
+<body>
+    <div class="fibonacci-container">
+        <h1>Fibonacci Generator</h1>
+        
+        <form id="fibonacciForm">
+            <label for="inputNumber">Masukkan Jumlah Angka:</label>
+            <input type="number" id="inputNumber" name="inputNumber" min="1" required>
+            <button type="button" onclick="generateFibonacci()">Generate</button>
+        </form>
+
+        <div id="result"></div>
+        <p><a href="{{ url_for('profile') }}">Back To Profile Page</a></p>
+    </div>
+    
+
+    <script>
+        function generateFibonacci() {
+            var inputNumber = document.getElementById('inputNumber').value;
+            var resultContainer = document.getElementById('result');
+            
+            // Validasi input
+            if (inputNumber <= 0) {
+                alert("Masukkan angka yang lebih besar dari 0.");
+                return;
+            }
+
+            // Reset hasil sebelumnya
+            resultContainer.innerHTML = "";
+
+            // Hitung deret Fibonacci
+            var fibArray = [1, 1];
+            for (var i = 2; i < inputNumber; i++) {
+                fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+            }
+
+            // Tampilkan hasil
+            resultContainer.innerHTML = "<p>Deret Fibonacci = " + fibArray.join(" ") + "</p>";
+        }
+    </script>
+</body>
+</html>
